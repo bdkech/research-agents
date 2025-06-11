@@ -5,7 +5,6 @@ A Python package for automated academic research and paper analysis. This agent 
 - Refining research queries for better search results
 - Retrieving relevant academic papers from arXiv
 - Generating concise summaries and identifying key findings
-- Creating well-formatted PDF reports
 
 ## Features
 
@@ -64,8 +63,6 @@ async def main():
     report = await orchestrator.research(
         topic="machine learning applications in healthcare",
         user_id=1,
-        generate_pdf=True,
-        output_filename="research_report.pdf",
     )
     
     # Access report data
@@ -93,21 +90,14 @@ academic-researcher/
 ├── src/
 │   └── academic_researcher/
 │       ├── agents/
-│       │   ├── __init__.py
 │       │   ├── base.py
 │       │   ├── paper_retrieval.py
 │       │   ├── prompt_processor.py
 │       │   └── summarization.py
 │       ├── core/
-│       │   ├── __init__.py
 │       │   └── orchestrator.py
 │       ├── models/
-│       │   ├── __init__.py
 │       │   └── schemas.py
-│       ├── utils/
-│       │   ├── __init__.py
-│       │   └── pdf_generator.py
-│       ├── __init__.py
 │       └── cli.py
 ├── pyproject.toml
 └── README.md
