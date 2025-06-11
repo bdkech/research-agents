@@ -1,0 +1,68 @@
+[project]
+name = "academic-researcher"
+version = "0.1.0"
+description = "An AI-powered academic research assistant that helps researchers find, analyze, and summarize academic papers"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+dependencies = [
+    "pydantic>=2.10.0",
+    "pydantic-ai==0.2.14",
+    "arxiv>=2.1.3",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+    "loguru>=0.7.0",
+    "click>=8.1.7",
+    "aiohttp>=3.9.0",
+    "langchain>=0.1.0",
+    "langchain-core>=0.1.0",
+    "langchain-experimental>=0.0.49",
+    "langgraph>=0.0.19",
+    ]
+requires-python = ">=3.9"
+
+[project.scripts]
+academic_researcher = "academic_researcher.cli:cli"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.23.0",
+    "pytest-cov>=4.1.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.8.0",
+    "ruff>=0.2.0",
+    "uv>=0.1.0",
+]
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=src/academic_researcher"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "B", "I", "N", "UP", "PL", "RUF"]
+ignore = ["E501"]
